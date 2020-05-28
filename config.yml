@@ -2,15 +2,14 @@
 # https://rasa.com/docs/rasa/nlu/components/
 language: en
 pipeline:
-  - name: WhitespaceTokenizer
-  - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer
-    token_pattern: (?u)\b\w+\b
-    dimensions:
-      - number
+  - name: HFTransformersNLP
+  - name: LanguageModelTokenizer
+  - name: RegexFeaturizer
+  - name: LanguageModelFeaturizer
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper
+  - name: CRFEntityExtractor
 
 policies:
   - name: FallbackPolicy

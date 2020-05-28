@@ -4,6 +4,7 @@ intents:
   - thankyou
   - request_repository:
       use_entities: []
+  - inform_repository
 
 entities:
   - repository
@@ -26,7 +27,7 @@ responses:
   utter_bye:
     - text: Bye!
   utter_ask_repository_name:
-    - text: "what repository?"
+    - text: "what repository should I look for?"
   utter_repository:
     - text: "All done !"
   utter_slots_values:

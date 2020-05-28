@@ -52,13 +52,19 @@
 - what the repo [React](repository_name) contains ?
 - what does the repository [Angular](repository_name) do ?
 - what does the repo [NodeJs](repository_name) do ?
-- i'm looking for a [Typescript](repository_language) repository
-- i'm looking for infos about [Ionic](repository_name) repository
+- i'm looking for a repository
+- i'm looking for infos about repository
 - i need infos about a repo
-- find infos on repository
+- find me infos on repository
 - need info on repo
-- fetch repo
-- need info on repo [Ionic](repository_name)
-- [Symfony](repository_name) repo
-- [Angular](repository_name)
+- fetch repository
 
+## intent:inform_repository
+- the name of the repository is [React](repository_name)
+- the [Rasa](repository_name) repo
+- the [Angular](repository_name) repository
+- [Ionic](repository_name)
+- the name is [Nodejs](repository_name)
+
+## lookup:repository_name
+data/lookups/repository_names.txt

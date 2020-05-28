@@ -33,11 +33,10 @@ class RepositoryForm(FormAction):
             - intent: value pairs
             - a whole message
             or a list of them, where a first match will be picked"""
-
         return {
             "repository_name": [
                 self.from_entity(
-                    entity="repository_name", intent=["request_repository"]
+                    entity="repository_name", intent=["request_repository", "inform_repository"]
                 ),
             ]
         }
@@ -59,4 +58,4 @@ I've found {repo.name}, {repo.stargazers_count}ðŸŸŠ (stars), {repo.forks_count}á
 {repo.description}
 {repo.clone_url}
     '''.format(**locals()))
-        return []
+        return self._deactivate()
