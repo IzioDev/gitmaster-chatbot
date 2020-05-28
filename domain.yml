@@ -1,0 +1,47 @@
+intents:
+  - greet
+  - bye
+  - thankyou
+  - request_repository:
+      use_entities: []
+
+entities:
+  - repository
+  - repository_name
+
+slots:
+  repository:
+    type: unfeaturized
+    auto_fill: false
+  repository_language:
+    type: unfeaturized
+    auto_fill: false
+  repository_name:
+    type: unfeaturized
+    auto_fill: false
+
+responses:
+  utter_greet:
+    - text: "Hi, I am repository assistant, How can I help you ?"
+  utter_bye:
+    - text: Bye!
+  utter_ask_repository_name:
+    - text: "what repository?"
+  utter_repository:
+    - text: "All done !"
+  utter_slots_values:
+    - text: "I am going to run a repository search using the following parameters:\n
+                - repository: {repository}\n"
+  utter_ask_continue:
+    - text: "do you want to continue?"
+  utter_noworries:
+    - text: "No worries"
+  utter_submit:
+    - text: "All done!"
+
+forms:
+  - repository_form
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
