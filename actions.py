@@ -6,11 +6,15 @@
 
 
 # This is a simple example for a custom action which utters "Hello World!"
+import os
 from typing import Dict, Text, Any, List, Union, Optional
 
 from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
+
+from server.github import search_first_repo_with_name
+
 
 class RepositoryForm(FormAction):
 
@@ -47,6 +51,12 @@ class RepositoryForm(FormAction):
         """Define what the form has to do
             after all required slots are filled"""
 
+        repo = search_first_repo_with_name(tracker.get_slot("repository_name"))
+
         # utter submit template
-        dispatcher.utter_message(template="utter_submit")
+        dispatcher.utter_message(text='''\
+I've found {repo.name}, {repo.stargazers_count}🟊 (stars), {repo.forks_count}ᛦ (forks)
+{repo.description}
+{repo.clone_url}
+    '''.format(**locals()))
         return []

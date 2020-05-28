@@ -25,3 +25,4 @@
     - utter_slots_values
 * thankyou
     - utter_noworries
+    - utter_slots_values
