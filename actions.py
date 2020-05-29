@@ -12,6 +12,7 @@ from typing import Dict, Text, Any, List, Union, Optional
 from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
+from rasa_sdk.events import SlotSet, Form
 
 from server.github import search_first_repo_with_name
 
@@ -51,6 +52,7 @@ class RepositoryForm(FormAction):
         """Define what the form has to do
             after all required slots are filled"""
 
+        print(tracker.get_slot("repository_name"))
         repo = search_first_repo_with_name(tracker.get_slot("repository_name"))
 
         # utter submit template
@@ -59,4 +61,4 @@ I've found {repo.name}, {repo.stargazers_count}ðŸŸŠ (stars), {repo.forks_count}á
 {repo.description}
 {repo.clone_url}
     '''.format(**locals()))
-        return self.deactivate()
+        return []

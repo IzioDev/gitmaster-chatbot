@@ -6,10 +6,9 @@ pipeline:
   - name: LanguageModelTokenizer
   - name: RegexFeaturizer
   - name: LanguageModelFeaturizer
+  - name: EntitySynonymMapper
   - name: DIETClassifier
     epochs: 100
-  - name: EntitySynonymMapper
-  - name: CRFEntityExtractor
 
 policies:
   - name: FallbackPolicy
