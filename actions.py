@@ -38,6 +38,7 @@ class RepositoryForm(FormAction):
                 self.from_entity(
                     entity="repository_name", intent=["request_repository", "inform_repository"]
                 ),
+                self.from_text(intent=["inform_repository"])
             ]
         }
 
@@ -58,4 +59,4 @@ I've found {repo.name}, {repo.stargazers_count}ðŸŸŠ (stars), {repo.forks_count}á
 {repo.description}
 {repo.clone_url}
     '''.format(**locals()))
-        return self._deactivate()
+        return self.deactivate()
