@@ -1,6 +1,7 @@
 ## goodbye
 * bye
-  - utter_bye
+    - utter_bye
+    - action_restart
 
 ## thankyou path
 * thankyou
@@ -8,29 +9,34 @@
 
 ## happy path
 * greet
-  - utter_greet
+    - utter_greet
 * request_repository
     - repository_form
-    - form{"repository_name": "repository_form"}
-    - form{"repository_name": null}
-    - utter_slots_values
+    - form{"name": "repository_form"}
+    - form{"name": null}
 * thankyou
     - utter_noworries
-    - utter_slots_values
+    - action_restart
+    
+## happy path no thanks
+* greet
+    - utter_greet
+* request_repository
+    - repository_form
+    - form{"name": "repository_form"}
+    - form{"name": null}
 
 ## repository requested path
 * request_repository
     - repository_form
-    - form{"repository_name": "repository_form"}
-    - form{"repository_name": null}
-    - utter_slots_values
+    - form{"name": "repository_form"}
+    - form{"name": null}
 * thankyou
     - utter_noworries
-    - utter_slots_values
-    
+    - action_restart
+
 ## Directly drop repo name
 * inform_repository
     - repository_form
-    - form{"repository_name": "repository_form"}
-    - form{"repository_name": null}
-    - utter_slots_values
+    - form{"name": "repository_form"}
+    - form{"name": null}

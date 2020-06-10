@@ -52,13 +52,17 @@ class RepositoryForm(FormAction):
         """Define what the form has to do
             after all required slots are filled"""
 
-        print(tracker.get_slot("repository_name"))
         repo = search_first_repo_with_name(tracker.get_slot("repository_name"))
 
-        # utter submit template
-        dispatcher.utter_message(text='''\
-I've found {repo.name}, {repo.stargazers_count}🟊 (stars), {repo.forks_count}ᛦ (forks)
-{repo.description}
-{repo.clone_url}
-    '''.format(**locals()))
+        if repo is not None:
+            # utter submit template
+            dispatcher.utter_message(text='''\
+            I've found {repo.name}, {repo.stargazers_count}🟊 (stars), {repo.forks_count}ᛦ (forks)
+            {repo.description}
+            {repo.clone_url}
+                '''.format(**locals()))
+        else:
+            dispatcher.utter_message(text='''\
+            I have not found any repository named {tracker.get_slot("repository_name")} 
+                '''.format(**locals()))
         return []
