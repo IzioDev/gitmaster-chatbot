@@ -1,4 +1,10 @@
 # gitmaster-chatbot
+
+<div align="center">
+<img src=https://s7.gifyu.com/images/gitmaster-chatbot.gif" >
+<p>Git master Chatbox demo</p>
+</div>
+
 ## How to install
 * Install Python.
 * Install Node.Js (12+).
